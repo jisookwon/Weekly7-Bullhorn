@@ -10,25 +10,30 @@
 
 <div th:replace="base :: nav"></div>
 
-<div class="container">
+<div class="container" style="padding-top:50px; padding-left: 50px;">
 
     <form action="#" th:action="@{/process}" th:object="${message}"
-          method="post">
+          method="post" enctype="multipart/form-data">
         <input type="hidden" th:field="*{id}"/>
+        <div style="">
+            Title: <input type="text" th:field="*{title}"/>
+               <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span><br/>
 
-        Title: <input type="text" th:field="*{title}"/>
-        <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span><br/>
+            Content: <input type="text"  th:field="*{content}"/>
+            <span th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span><br/>
 
-        Content: <input type="text" th:field="*{instructor}"/>
-        <span th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span><br/>
+            PostedBy: <input type="text" th:field="*{postedBy}"/>
+            <span th:if="${#fields.hasErrors('postedBy')}" th:errors="*{postedBy}"></span><br/>
 
-        PostedBy: <input type="text" th:field="*{credit}"/>
-        <span th:if="${#fields.hasErrors('postedBy')}" th:errors="*{postedBy}"></span><br/>
+            PostedDate: <input type="text" th:field="*{postedDate}"/>
+            <span th:if="${#fields.hasErrors('postedDate')}" th:errors="*{postedDate}"></span><br/>
 
-        PostedDate: <input type="text" th:field="*{description}"/>
-        <span th:if="${#fields.hasErrors('postedDate')}" th:errors="*{postedDate}"></span><br/>
+            Picture: <input type="file" name="file"/>
+            <span th:if="${#fields.hasErrors('headshot')}" th:errors="*{headshot}"></span><br/>
+        </div>
 
         <input type="submit" value="Submit"/>
+
     </form>
 </div>
 

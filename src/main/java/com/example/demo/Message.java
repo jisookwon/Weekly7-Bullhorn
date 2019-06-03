@@ -27,6 +27,8 @@ public class Message {
     @Size(min=3)
     private String postedBy;
 
+    private String headshot;
+
     @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
@@ -75,6 +77,14 @@ public class Message {
 
     public String getPostedBy() {
         return postedBy;
+    }
+
+    public String getHeadshot() {
+        return headshot;
+    }
+
+    public void setHeadshot(String headshot) {
+        this.headshot = headshot;
     }
 
     public void setPostedBy(String postedBy) {

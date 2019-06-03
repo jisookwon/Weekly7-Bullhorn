@@ -1,18 +1,19 @@
 body {
-    background-image: url("https://cdn.pixabay.com/photo/2018/09/25/11/52/aerial-3702074_960_720.jpg");
+    /*background-image: url("https://cdn.pixabay.com/photo/2018/09/25/11/52/aerial-3702074_960_720.jpg");*/
+    background-image: url("https://images.pexels.com/photos/114979/pexels-photo-114979.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
     /*background: #E2F0F5 url("../img/bg.png") repeat top left;*/
     /*font-family: 'Fascinate Inline', cursive;*/
     /*font-family: 'Alfa Slab One', cursive;*/
 }
 
-/*div.container {*/
-    /*background-color: #fff;*/
-    /*opacity: 0.8;*/
-    /*margin: 150px auto 50px auto;*/
-    /*width: 80%;*/
-    /*padding: 30px;*/
-    /*border-radius: 15px;*/
-/*}*/
+div.container {
+    background-color: #fff;
+    opacity: 0.8;
+    margin: 150px auto 50px auto;
+    width: 80%;
+    padding: 30px;
+    border-radius: 15px;
+}
 
 .logo {
     font-family: 'Fascinate Inline', cursive;

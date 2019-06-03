@@ -4,12 +4,21 @@
 <head>
     <title>Secure Page</title>
     <th:block th:replace="base :: header"></th:block>
+    <style>
+        body {
+            background-color: darkgray;
+
+            /*background-image: url("https://cdn.pixabay.com/photo/2018/03/21/10/00/aerial-3246120_960_720.jpg");*/
+            /*background-repeat: no-repeat;*/
+        }
+    </style>
 </head>
+
 <body>
 
 <div th:replace="base :: nav"></div>
 
-<h2>Secure Page</h2>
+<h2>Welcome BullHorn</h2>
 
 <div>Welcome [[${user.firstName}]]!</div>
 
@@ -18,7 +27,8 @@
     </div>
 
 <div sec:authorize="hasAuthority('USER')">
-    Users will see this text
+
+    Please Choose your action on the Top-Menu
 </div>
 
 </body>

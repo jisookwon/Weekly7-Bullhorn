@@ -1,20 +1,45 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:padding-left="http://www.w3.org/1999/xhtml"
+      xmlns:padding-top="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Message Details</title>
     <th:block th:insert="base :: header"></th:block>
+    <style>
+        body {
+            background-color: darkgray;
+
+            /*background-image: url("https://cdn.pixabay.com/photo/2018/03/21/10/00/aerial-3246120_960_720.jpg");*/
+            /*background-repeat: no-repeat;*/
+        }
+    </style>
 </head>
 <body>
 <div th:replace="base :: nav"></div>
 
-<div class="container">
+<div class="container" style="padding-top:50px; padding-left: 50px;">
 
-    Title: <span th:text="${message.title}"></span><br/>
-    Content: <span th:text="${message.content}"></span><br/>
-    PostedBy: <span th:text="${message.postedBy}"></span><br/>
-    PostedBy: <span th:text="${message.postedDate}"></span><br/>
+    <div>
+        <div class="col-sm-2">
+            <div class="card text-center" style="width: 400px">
+                <!--<div class="card-header text-center"><span>sfgsfg sfgsfg</span></div>-->
+                <div th:if="${message.headshot} != null">
+                    <img class="card-img-top user-img" th:src="${message.headshot}" alt="messageheadshot">
+                </div>
+                <div class="card-body">
+                    Title : <span th:text="${message.title}"></span><br/>
+                    Content : <span th:text="${message.content}"></span><br/>
+                    PostedBy : <span th:text="${message.postedBy}"></span><br/>
+                    PostedDate : <span th:text="${message.postedDate}"></span><br/>
+                    <!--<a class="card-link btn btn-warning" href="/detail/5">More Info</a>-->
+                    <!--<div class="card-footer text-center"><span>sfgsfg sfgsfg</span></div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
     <br/>
     <span th:if="${user_id == message.user.id}">
                     <a th:href="@{/delete/{id}(id=${message.id})}">Delete this message</a>
