@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <th:block th:insert="base :: header"></th:block>
+</head>
+<body>
+
+<div th:replace="base :: nav"></div>
+<!--<div class="container" id="jumbo-container">-->
+<!--<div class="jumbotron">-->
+<!--<h1>this is title</h1>-->
+<!--</div>-->
+<!--</div>-->
+
+
+<div class="container">
+    <div class="jumbotron">
+        <h2>Message</h2>
+    </div>
+    <table class="table table-borderless">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>PostedDate</th>
+            <th>PostedBy</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="message : ${messages}">
+            <td th:text="${message.title}"></td>
+            <td th:text="${message.content}"></td>
+            <td th:text="${message.postedDate}"></td>
+            <td th:text="${message.postedBy}"></td>
+            <td>
+                <div sec:authorize="hasAuthority('ADMIN')">
+                    <span th:if="${user_id == message.user.id}">
+                        <a th:href="@{/update/{id}(id=${message.id})}" class="btn btn-info" role="button">Update</a>
+                        <a th:href="@{/delete/{id}(id=${message.id})}" class="btn btn-info" role="button">Delete</a>
+                        <a th:href="@{/detail/{id}(id=${message.id})}" class="btn btn-info" role="button">Details</a>
+                    </span>
+                </div>
+
+                <div sec:authorize="hasAuthority('USER')">
+                    <span>
+                        <a th:href="@{/detail/{id}(id=${message.id})}" class="btn btn-info" role="button">Details</a>
+                    </span>
+
+                </div>
+                <div sec:authorize="isAnonymous()">
+                    <span>
+                        <a th:href="@{/detail/{id}(id=${message.id})}" class="btn btn-info" role="button">Details</a>
+                    </span>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!--<tbody>-->
+    <!--<tr th:each="message : ${messages}">-->
+    <!--<td th:text="${message.title}"></td>-->
+    <!--<td>-->
+    <!--<img th:src="${message.messagePic == null}?'':${message.messagePic}" style="height: auto; width: auto"  />-->
+    <!--</td>-->
+    <!--<td>-->
+    <!--<span th:text="${message.postedBy}"></span>-->
+    <!--</td>-->
+    <!--<td th:text="${message.postedDate}"></td>-->
+    <!--<td>-->
+    <!--&lt;!&ndash; Anyone can see Details &ndash;&gt;-->
+    <!--<a class="btn btn-warning" th:href="@{/detail/{id}(id=${message.id})}">Details</a>-->
+    <!--&lt;!&ndash; Only the user that made the post can update &ndash;&gt;-->
+    <!--<span th:if="${user_id == message.user.id}">-->
+    <!--<a class="btn btn-warning" th:href="@{/update/{id}(id=${message.id})}">Update</a>-->
+    <!--<a class="btn btn-danger" th:href="@{/delete/{id}(id=${message.id})}">Delete</a>-->
+    <!--</span>-->
+    <!--</td>-->
+    <!--</tr>-->
+    <!--</tbody>   -->
+    <!---->
+
+
+
+
+</div>
+
+<div th:replace="base :: footer"></div>
+</body>
+</html>

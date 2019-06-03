@@ -1,0 +1,87 @@
+body {
+    background-image: url("https://cdn.pixabay.com/photo/2018/09/25/11/52/aerial-3702074_960_720.jpg");
+    /*background: #E2F0F5 url("../img/bg.png") repeat top left;*/
+    /*font-family: 'Fascinate Inline', cursive;*/
+    /*font-family: 'Alfa Slab One', cursive;*/
+}
+
+/*div.container {*/
+    /*background-color: #fff;*/
+    /*opacity: 0.8;*/
+    /*margin: 150px auto 50px auto;*/
+    /*width: 80%;*/
+    /*padding: 30px;*/
+    /*border-radius: 15px;*/
+/*}*/
+
+.logo {
+    font-family: 'Fascinate Inline', cursive;
+    font-weight: bold;
+    font-size: xx-large;
+    color: #9fcdff;
+}
+
+.logo a {
+    color: #9fcdff;
+}
+
+.logo a:hover {
+    color: #cce5ff;
+    text-decoration: none;
+}
+
+span.welcome-user {
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+h1 {
+    font-weight: bolder;
+}
+
+h2 {
+    font-family: 'Pacifico', cursive;
+    margin: 50px auto;
+    border-radius: 15px 15px 0px 0px;
+    color: #d3d9df;
+}
+
+.user-img {
+    width: 200px;
+    height: 100px;
+}
+
+.card {
+    width: 400px;
+}
+
+.col-sm {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.content-center {
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.list-center {
+    width: 65%;
+    margin: 0 auto;
+}
+
+.detail-img {
+    width: 300px;
+    height: auto;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+btn {
+    margin: 5px;
+}
